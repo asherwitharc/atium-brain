@@ -9,14 +9,13 @@ import { firms, TOTAL_FIRMS, LAST_RUN, atiumSummary, recordTypeSplit } from '../
 
 // ─── chart data ───────────────────────────────────────────────────────────────
 const weeklyData = [
-  { week: 'May 4',  advances: 38, amountK: 190.5 },
-  { week: 'May 11', advances: 42, amountK: 575.8 },
-  { week: 'May 18', advances: 32, amountK: 456.1 },
-  { week: 'May 25', advances: 52, amountK: 394.3 },
-  { week: 'Jun 1',  advances: 74, amountK: 543.6 },
-  { week: 'Jun 8',  advances: 94, amountK: 890.5 },
-  { week: 'Jun 15', advances: 69, amountK: 307.3 },
-  { week: 'Jun 22', advances: 76, amountK: 502.8 },
+  { week: 'May 4',  executed: 44,  amountK: 260.3  },
+  { week: 'May 11', executed: 29,  amountK: 540.7  },
+  { week: 'May 18', executed: 27,  amountK: 121.6  },
+  { week: 'May 25', executed: 30,  amountK: 280.3  },
+  { week: 'Jun 1',  executed: 69,  amountK: 876.6  },
+  { week: 'Jun 8',  executed: 102, amountK: 1095.1 },
+  { week: 'Jun 15', executed: 67,  amountK: 377.3  },
 ];
 
 const distributionData = [
@@ -378,7 +377,7 @@ export default function Home() {
           {/* Chart A — Weekly funding volume */}
           <div style={{ background: '#0F0F0F', border: '1px solid #181818', borderRadius: '8px', padding: '16px 16px 12px' }}>
             <p style={{ fontWeight: 600, fontSize: '13px', color: '#E8E8E8', marginBottom: '2px' }}>Portfolio funding volume</p>
-            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>Last 8 weeks · Lawfund origination</p>
+            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>Last 7 weeks · Lawfund origination</p>
             <ResponsiveContainer width="100%" height={180}>
               <ComposedChart data={weeklyData} margin={{ top: 4, right: 52, bottom: 0, left: -8 }}>
                 <XAxis
@@ -404,7 +403,7 @@ export default function Home() {
                   tickFormatter={(v: number) => `$${v}K`}
                 />
                 <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
-                <Bar yAxisId="left"  dataKey="advances" name="Advances"    fill="#34D399" radius={[2, 2, 0, 0]} maxBarSize={18} />
+                <Bar yAxisId="left"  dataKey="executed" name="Executed"    fill="#34D399" radius={[2, 2, 0, 0]} maxBarSize={18} />
                 <Bar yAxisId="right" dataKey="amountK"  name="Amount ($K)" fill="#4F7FE8" radius={[2, 2, 0, 0]} maxBarSize={18} />
               </ComposedChart>
             </ResponsiveContainer>
