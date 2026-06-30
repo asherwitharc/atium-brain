@@ -9,21 +9,27 @@ import { firms, TOTAL_FIRMS, LAST_RUN, atiumSummary, recordTypeSplit } from '../
 
 // ─── chart data ───────────────────────────────────────────────────────────────
 const weeklyData = [
-  { week: 'May 25', fundings: 5,  amountK: 12.8 },
-  { week: 'Jun 1',  fundings: 39, amountK: 296  },
-  { week: 'Jun 8',  fundings: 66, amountK: 717  },
-  { week: 'Jun 15', fundings: 46, amountK: 288  },
-  { week: 'Jun 22*',fundings: 13, amountK: 92   },
+  { week: 'May 4',  advances: 38, amountK: 190.5 },
+  { week: 'May 11', advances: 42, amountK: 575.8 },
+  { week: 'May 18', advances: 32, amountK: 456.1 },
+  { week: 'May 25', advances: 52, amountK: 394.3 },
+  { week: 'Jun 1',  advances: 74, amountK: 543.6 },
+  { week: 'Jun 8',  advances: 94, amountK: 890.5 },
+  { week: 'Jun 15', advances: 69, amountK: 307.3 },
+  { week: 'Jun 22', advances: 76, amountK: 502.8 },
 ];
 
 const distributionData = [
-  { range: '90–100', count: 38  },
-  { range: '80–89',  count: 1   },
-  { range: '70–79',  count: 0   },
-  { range: '60–69',  count: 0   },
-  { range: '50–59',  count: 0   },
-  { range: '1–49',   count: 0   },
-  { range: '0',      count: 545 },
+  { range: '90–100', count: 2   },
+  { range: '80–89',  count: 4   },
+  { range: '70–79',  count: 5   },
+  { range: '60–69',  count: 4   },
+  { range: '50–59',  count: 3   },
+  { range: '40–49',  count: 5   },
+  { range: '30–39',  count: 2   },
+  { range: '20–29',  count: 3   },
+  { range: '10–19',  count: 10  },
+  { range: '1–9',    count: 5   },
 ];
 
 // ─── types ────────────────────────────────────────────────────────────────────
@@ -372,7 +378,7 @@ export default function Home() {
           {/* Chart A — Weekly funding volume */}
           <div style={{ background: '#0F0F0F', border: '1px solid #181818', borderRadius: '8px', padding: '16px 16px 12px' }}>
             <p style={{ fontWeight: 600, fontSize: '13px', color: '#E8E8E8', marginBottom: '2px' }}>Portfolio funding volume</p>
-            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>Last 5 weeks · Lawfund origination</p>
+            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>Last 8 weeks · Lawfund origination</p>
             <ResponsiveContainer width="100%" height={180}>
               <ComposedChart data={weeklyData} margin={{ top: 4, right: 52, bottom: 0, left: -8 }}>
                 <XAxis
@@ -398,19 +404,16 @@ export default function Home() {
                   tickFormatter={(v: number) => `$${v}K`}
                 />
                 <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
-                <Bar yAxisId="left"  dataKey="fundings" name="Fundings"    fill="#34D399" radius={[2, 2, 0, 0]} maxBarSize={18} />
+                <Bar yAxisId="left"  dataKey="advances" name="Advances"    fill="#34D399" radius={[2, 2, 0, 0]} maxBarSize={18} />
                 <Bar yAxisId="right" dataKey="amountK"  name="Amount ($K)" fill="#4F7FE8" radius={[2, 2, 0, 0]} maxBarSize={18} />
               </ComposedChart>
             </ResponsiveContainer>
-            <p style={{ fontSize: '10px', color: '#555555', marginTop: '6px', fontFamily: 'var(--font-mono)' }}>
-              * Jun 22 is a partial week
-            </p>
           </div>
 
           {/* Chart B — Score distribution */}
           <div style={{ background: '#0F0F0F', border: '1px solid #181818', borderRadius: '8px', padding: '16px 16px 12px' }}>
             <p style={{ fontWeight: 600, fontSize: '13px', color: '#E8E8E8', marginBottom: '2px' }}>Funding score distribution</p>
-            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>584 firms scored tonight</p>
+            <p style={{ fontSize: '11px', color: '#aaaaaa', marginBottom: '16px' }}>588 firms scored tonight</p>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart layout="vertical" data={distributionData} margin={{ top: 0, right: 8, bottom: 0, left: 0 }}>
                 <XAxis
@@ -429,8 +432,8 @@ export default function Home() {
                 />
                 <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
                 <Bar dataKey="count" name="Firms" radius={[0, 2, 2, 0]} maxBarSize={14}>
-                  {distributionData.map((entry, i) => (
-                    <Cell key={i} fill={entry.range === '0' ? '#383838' : '#34D399'} />
+                  {distributionData.map((_entry, i) => (
+                    <Cell key={i} fill="#34D399" />
                   ))}
                 </Bar>
               </BarChart>
