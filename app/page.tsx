@@ -9,26 +9,26 @@ import { firms, TOTAL_FIRMS, LAST_RUN, atiumSummary, recordTypeSplit } from '../
 
 // ─── chart data ───────────────────────────────────────────────────────────────
 const weeklyData = [
-  { week: 'May 4',  executed: 44,  amountK: 260.3  },
-  { week: 'May 11', executed: 29,  amountK: 540.7  },
-  { week: 'May 18', executed: 27,  amountK: 121.6  },
-  { week: 'May 25', executed: 30,  amountK: 280.3  },
-  { week: 'Jun 1',  executed: 69,  amountK: 876.6  },
-  { week: 'Jun 8',  executed: 102, amountK: 1095.1 },
-  { week: 'Jun 15', executed: 67,  amountK: 377.3  },
+  { week: 'Jun 1',  executed: 70,  amountK: 884.0  },
+  { week: 'Jun 8',  executed: 102, amountK: 1092.6 },
+  { week: 'Jun 15', executed: 67,  amountK: 374.3  },
+  { week: 'Jun 22', executed: 80,  amountK: 565.9  },
+  { week: 'Jun 29', executed: 85,  amountK: 1019.3 },
+  { week: 'Jul 6',  executed: 98,  amountK: 1263.2 },
+  { week: 'Jul 13', executed: 90,  amountK: 693.8  },
 ];
 
 const distributionData = [
-  { range: '90–100', count: 2   },
-  { range: '80–89',  count: 4   },
-  { range: '70–79',  count: 5   },
-  { range: '60–69',  count: 4   },
-  { range: '50–59',  count: 3   },
-  { range: '40–49',  count: 5   },
-  { range: '30–39',  count: 2   },
-  { range: '20–29',  count: 3   },
-  { range: '10–19',  count: 10  },
-  { range: '1–9',    count: 5   },
+  { range: '90–100', count: 3  },
+  { range: '80–89',  count: 5  },
+  { range: '70–79',  count: 3  },
+  { range: '60–69',  count: 6  },
+  { range: '50–59',  count: 2  },
+  { range: '40–49',  count: 10 },
+  { range: '30–39',  count: 7  },
+  { range: '20–29',  count: 5  },
+  { range: '10–19',  count: 0  },
+  { range: '1–9',    count: 10 },
 ];
 
 // ─── types ────────────────────────────────────────────────────────────────────
